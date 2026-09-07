@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F172A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_button"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="ผลการวิเคราะห์"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Main Cause Card (สีแดงเตือน) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_cause_card"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:src="@android:drawable/ic_dialog_alert"
+                app:tint="#EF4444" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="สาเหตุที่เป็นไปได้มากที่สุด (85%)"
+                    android:textColor="#FCA5A5"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvMainCause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="ต่อขั้ว LED กลับด้าน (Reverse Bias)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Secondary Cause Card (วิเคราะห์เชิงลึก/เปรียบเทียบสาเหตุรอง) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_dark"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="สาเหตุรองจากการเปรียบเทียบ"
+                android:textColor="#94A3B8"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSecondaryCause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• ค่าตัวต้านทานอนุกรมสูงเกินไป (15%)\n• LED เสื่อมสภาพ/ขาดภายใน (5%)"
+                android:textColor="#CBD5E1"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+
+        <!-- Action Items / Solution Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_dark"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="คำแนะนำในการแก้ไข"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvSolution1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔  ตรวจสอบขั้ว Anode (+) และ Cathode (-) ของ LED"
+                android:textColor="#10B981"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvSolution2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔  สลับตำแหน่งสายไฟหรือหมุนขั้วอุปกรณ์ให้ถูกต้อง"
+                android:textColor="#10B981"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvSolution3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔  ตรวจสอบตัวต้านทานจำกัดกระแส (เช่น 220Ω - 1kΩ)"
+                android:textColor="#10B981"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvSolution4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔  จ่ายไฟและทดสอบการทำงานอีกครั้ง"
+                android:textColor="#10B981"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btnTheory"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:backgroundTint="#1E293B"
+            android:text="ดูหลักการและทฤษฎีเพิ่มเติม"
+            android:textColor="#94A3B8"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"
+            app:cornerRadius="12dp" />
+
+        <Button
+            android:id="@+id/btnRestart"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:backgroundTint="#2563EB"
+            android:text="ลองวิเคราะห์ใหม่"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+</ScrollView>
