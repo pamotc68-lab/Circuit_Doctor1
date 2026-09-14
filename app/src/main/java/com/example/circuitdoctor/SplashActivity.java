@@ -4,49 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-
-    private ProgressBar progressBar;
-    private int progressStatus = 0;
-    private final Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        progressBar = findViewById(R.id.progressBar);
-
-        new Thread(new Runnable() {
+        // หน่วงเวลา 2 วินาทีแล้วเปิดไปหน้า LoginActivity
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                while (progressStatus < 100) {
-                    progressStatus += 2;
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progressBar.setProgress(progressStatus);
-                        }
-                    });
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish(); // ปิดหน้า Splash สดเพื่อไม่ให้กดย้อนกลับมาได้
             }
-        }).start();
+        }, 2000); // 2000 ms = 2 วินาที
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -9,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CircuitDoctor">
+        android:theme="@style/Theme.CircuitDoctor"
+        tools:targetApi="31">
 
-        <!-- หน้าแรกเมื่อเปิดแอป -->
+        <!-- Splash / Login Screen -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -21,20 +23,24 @@
             </intent-filter>
         </activity>
 
-        <!-- หน้าหลัก -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".DiagnosticActivity" android:exported="false" />
+        <activity android:name=".LearnActivity" android:exported="false" />
+        <activity android:name=".QuestionActivity" android:exported="false" />
+        <activity android:name=".ResultActivity" android:exported="false" />
+        <activity android:name=".ProfileActivity" android:exported="false" />
 
-        <!-- หน้าเลือกอาการของวงจร -->
+        <!-- Tinkercad Simulator (บังคับแนวนอน Landscape และไม่ขัดแย้งกับ Theme) -->
         <activity
-            android:name=".DiagnosticActivity"
-            android:exported="false" />
+            android:name=".SimulatorActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
-            android:name=".QuestionActivity"
+            android:name=".HistoryActivity"
             android:exported="false" />
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".LearnActivity" />
 
     </application>
 
